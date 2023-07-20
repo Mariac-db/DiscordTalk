@@ -1,2 +1,8 @@
 pandas==1.3.3
 scikit-learn==1.0
+pandas==1.3.3
+scikit-learn==1.0
+matplotlib==3.4.3
+seaborn==0.11.2
+dvc==2.7.4
+dvc-gdrive
