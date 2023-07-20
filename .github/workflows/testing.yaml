@@ -1,0 +1,25 @@
+name: Testing API
+on: [push, pull_request]
+jobs:
+  testing-api:
+    runs-on: ubuntu-latest
+    env:
+      SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }} #google credentials 
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+      - name: Creating and activating virtualenv
+        run: |
+          pip3 install virtualenv
+          virtualenv venv
+          source venv/bin/activate
+      - name: Installing dependencies
+        run: |
+          pip install dvc
+          pip install dvc-gdrive
+          pip install -r requirements_test.txt
+      - name: Test API
+        run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
+          dvc pull model/model.pkl -r model-track
+          pytest tests.py
