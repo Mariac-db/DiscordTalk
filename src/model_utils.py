@@ -18,7 +18,7 @@ def save_simple_metrics_report(train_score: float, test_score: float, validation
 
         report_file.write(f'### Train Score: {train_score}'+'\n')
         report_file.write(f'### Test Score: {test_score}'+'\n')
-        report_file.write(f'### Validation Score: {validation_score}'+'\n')
+        report_file.write(f '### Validation Score: {validation_score}'+'\n')
 
 def get_model_performance_test_set(y_real: pd.Series, y_pred: pd.Series) ->None:
     fig, ax = plt.subplots()

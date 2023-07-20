@@ -4,9 +4,7 @@ from io import StringIO
 import sys
 import logging
 from pandas.core.tools import numeric
-
-
-
+ 
 logging.basicConfig(
     format='%(asctime)s %(levelname)s:%(name)s: %(message)s',
     level=logging.INFO,
@@ -36,4 +34,5 @@ fin_movie_data = pd.merge(fin_data, movie_data, on='movie_title', how='left')
 full_movie_data = pd.merge(opening_data, fin_movie_data, on='movie_title', how='left')
 full_movie_data = full_movie_data.drop(['gross','movie_title'], axis=1)
 full_movie_data.to_csv('dataset/full_data.csv',index=False) 
+
 logger.info('Data Fetched and prepared...')

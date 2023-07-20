@@ -3,9 +3,10 @@
 *.pkl
 env/
 notebooks/.ipynb_checkpoints
-*.txt
+report.txt
 *.png
 __pycache__/
+
 
 
 
